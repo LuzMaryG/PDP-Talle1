@@ -12,7 +12,6 @@ export const Cart = () => {
   const [texto, setTexto] = useState('');
   const HandleInputChange = ({ target }) => {
     setTexto(target.value)
-    console.log(target.value);
   }
 
   const { cartItems } = useContext(CartContext);
@@ -22,7 +21,6 @@ export const Cart = () => {
       cartItems?.reduce((previous, current) => previous + current.amount, 0)
     );
   }, [cartItems]);
-
 
   const subTotal = cartItems.reduce((previous, current) => previous + current.amount * current.price, 0)
   const total = subTotal - texto;
